@@ -8,15 +8,19 @@ dotenv.config({
 
 const PORT = process.env.PORT || 3000;
 
-connectDB().then(()=>{
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-})
-.catch((err)=>{
-  console.log("Connection Failed ! ",err)
+// Add the welcome route to the app before starting the server
+app.get('/', (req, res) => {
+    res.send("Welcome to Blinkeyit API")
 })
 
-app.get('/',(req,res)=>{
-    res.send("Welcome")
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
 })
+.catch((err) => {
+    console.log("Connection Failed ! ", err)
+})
+
+// Export the app for Vercel
+export default app;
