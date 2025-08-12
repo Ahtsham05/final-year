@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-white border-t">
       <div className="flex flex-col lg:flex-row lg:justify-between container mx-auto p-3">
-        <p className="text-center lg:text-left">Alright Reserved &copy; BlinkeyIt 2025 Developed By Ahtsham Ali</p>
+        <p className="text-center lg:text-left">Alright Reserved &copy; BlinkeyIt 2025 Developed By Faizan Ali, Ahtsham Ali</p>
         <div className="flex items-center justify-center gap-5 text-xl">
           <Link to={"/"}>
             <FaFacebook className="hover:text-primary200 cursor-pointer" />

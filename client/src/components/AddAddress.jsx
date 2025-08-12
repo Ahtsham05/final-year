@@ -31,7 +31,7 @@ const AddAddress = ({close}) => {
         }
     }
   return (
-    <section className='fixed top-0 bottom-0 left-0 right-0 bg-neutral-700 z-50 bg-opacity-60 flex justify-center items-center'>
+    <section className='fixed top-0 bottom-0 left-0 right-0 bg-neutral-700 z-[100] bg-opacity-60 flex justify-center items-center'>
         <div className='max-w-md w-full bg-white p-2'>
             <div className='flex justify-between p-2 shadow'>
                 <h1 className='font-semibold'>Add address</h1>

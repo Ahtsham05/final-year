@@ -9,12 +9,15 @@ import VerifyOtp from "../pages/VerifyOtp"
 import ResetPassword from "../pages/ResetPassword"
 import MobileUserMenu from "../pages/MobileUserMenu"
 import Dashboard from "../layout/Dashboard"
+import AdminDashboard from "../pages/Dashboard"
 import UpdateUserProfile from "../pages/UpdateUserProfile"
 import Category from "../pages/Category"
 import SubCategory from "../pages/SubCategory"
 import UploadProduct from "../pages/UploadProduct"
 import AdminPage from "../layout/AdminPage"
 import AdminProduct from "../pages/AdminProduct"
+import AdminOrders from "../pages/AdminOrders"
+import CustomerOrders from "../pages/CustomerOrders"
 import ProductListPage from "../pages/ProductListPage"
 import ProductDisplayPage from "../pages/ProductDisplayPage"
 import MobileCart from "../pages/MobileCart"
@@ -65,8 +68,16 @@ const router = createBrowserRouter([
                 element:<Dashboard/>,
                 children:[
                     {
+                        path:"",
+                        element:<AdminDashboard/>
+                    },
+                    {
                         path:"profile",
                         element:<UpdateUserProfile/>
+                    },
+                    {
+                        path:"myorders",
+                        element:<CustomerOrders/>
                     },
                     {
                         path:"category",
@@ -90,6 +101,12 @@ const router = createBrowserRouter([
                         path:"adminproduct",
                         element:<AdminPage>
                                     <AdminProduct/>
+                                </AdminPage>
+                    },
+                    {
+                        path:"orders",
+                        element:<AdminPage>
+                                    <AdminOrders/>
                                 </AdminPage>
                     },
                     {

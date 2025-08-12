@@ -44,7 +44,7 @@ const UpdateUserAvatar = ({close}) => {
         }
     }
   return (
-    <div className='fixed top-0 left-0 right-0 bottom-0 bg-neutral-900 bg-opacity-60 flex items-center justify-center w-full p-4'>
+    <div className='fixed top-0 left-0 right-0 bottom-0 bg-neutral-900 bg-opacity-60 flex items-center justify-center w-full p-4 z-[100]'>
         <div className='bg-white max-w-sm w-full p-4 flex flex-col items-center justify-center'>
             <div className='block ml-auto' onClick={close}><IoClose size={25}/></div>
             <div className=' h-20 w-20 rounded-full flex items-center justify-center relative overflow-hidden'>

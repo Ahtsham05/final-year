@@ -147,6 +147,26 @@ const summery = {
     createPaymentOrder:{
         url:'/api/v1/order/create-payment-order',
         method:'post'
+    },
+    verifyPayment:{
+        url:'/api/v1/order/verify-payment',
+        method:'post'
+    },
+    getAllOrders:{
+        url:'/api/v1/order/all-orders',
+        method:'post'
+    },
+    updateOrderStatus:{
+        url:'/api/v1/order/update-status',
+        method:'put'
+    },
+    getOrderStats:{
+        url:'/api/v1/order/stats',
+        method:'get'
+    },
+    getCustomerOrders:{
+        url:'/api/v1/order/customer-orders',
+        method:'post'
     }
 }
 

@@ -93,7 +93,7 @@ const AdminProduct = () => {
   }
 
   return (
-    <section className='p-4 h-full flex flex-col justify-between'>
+    <section className='p-4 h-full flex flex-col'>
         <div className='p-2 shadow-sm flex flex-col gap-2 md:gap-0 md:flex-row justify-between md:items-center'>
           <h1 className='font-semibold'>Admin Product</h1>
           <div className='border group focus-within:border-primary200 rounded max-w-sm flex items-center cursor-pointer'>
@@ -109,53 +109,75 @@ const AdminProduct = () => {
             />
           </div>
         </div>
-        {
-          allproducts.length > 0 && (
-            <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 py-4'>
-            {
-              allproducts.map((product,index)=>(
-                <div key={product._id+"product"} className='rounded flex flex-col justify-between max-w-40 shadow-md border p-2'>
-                  <div className='h-28 md:h-32'>
-                    <img
-                      src={product.image[0]}
-                      alt={product.name}
-                      className='w-full h-full'
-                    />
+        
+        <div className='flex-1 flex flex-col'>
+          {
+            allproducts.length > 0 ? (
+              <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-3 py-4 flex-1'>
+              {
+                allproducts.map((product,index)=>(
+                  <div key={product._id+"product"} className='rounded flex flex-col justify-between max-w-40 shadow-md border p-2 h-fit'>
+                    <div className='h-28 md:h-32'>
+                      <img
+                        src={product.image[0]}
+                        alt={product.name}
+                        className='w-full h-full object-cover'
+                      />
+                    </div>
+                    <p className='text-center text-sm py-1'>{product.name}</p>
+                    <div className='p-1 flex gap-2'>
+                      <button className='border py-1 px-1 rounded border-blue-500 text-blue-500 text-xs' onClick={()=>{
+                        setOpenEditBox(true)
+                        setUpdate(product)
+                      }}>Edit</button>
+                      <button className='border py-1 px-1 rounded border-red-500 text-red-500 text-xs' onClick={()=>{
+                        setOpenConfirmBox(true)
+                        setDeleteId(product._id)
+                        }}>Delete</button>
+                    </div>
                   </div>
-                  <p className='text-center text-sm py-1'>{product.name}</p>
-                  <div className='p-1 flex gap-2'>
-                    <button className='border py-1 px-1 rounded border-blue-500 text-blue-500' onClick={()=>{
-                      setOpenEditBox(true)
-                      setUpdate(product)
-                    }}>Edit</button>
-                    <button className='border py-1 px-1 rounded border-red-500 text-red-500' onClick={()=>{
-                      setOpenConfirmBox(true)
-                      setDeleteId(product._id)
-                      }}>Delete</button>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-          )
-        } 
-        {
-          totalPages > 1 && (
-            <div className='flex justify-between'>
-              <button className='border rounded border-primary200 py-2 px-4 hover:bg-primary200 text-sm hover:text-gray-100' onClick={()=>{
-                if(page > 1){
-                  setPage(prev => prev-1)
-                }
-              }}>Previous</button>
-              <p>{ page } / {totalPages}</p>
-              <button className='border rounded border-primary200 py-2 px-4 hover:bg-primary200 text-sm hover:text-gray-100' onClick={()=> {
-                if(page < totalPages){
-                  setPage(prev => prev+1)
-                }
-              }}>Next</button>
+                ))
+              }
             </div>
-          )
-        }     
+            ) : (
+              <div className='flex-1 flex items-center justify-center'>
+                <p className='text-gray-500 text-lg'>
+                  {search ? `No products found for "${search}"` : "No products available"}
+                </p>
+              </div>
+            )
+          } 
+          
+          {
+            totalPages > 1 && (
+              <div className='flex justify-between items-center mt-4 pt-4 border-t'>
+                <button 
+                  className='border rounded border-primary200 py-2 px-4 hover:bg-primary200 text-sm hover:text-gray-100 disabled:opacity-50 disabled:cursor-not-allowed' 
+                  onClick={()=>{
+                    if(page > 1){
+                      setPage(prev => prev-1)
+                    }
+                  }}
+                  disabled={page <= 1}
+                >
+                  Previous
+                </button>
+                <p className='text-sm'>Page {page} of {totalPages} ({totalRecord} total products)</p>
+                <button 
+                  className='border rounded border-primary200 py-2 px-4 hover:bg-primary200 text-sm hover:text-gray-100 disabled:opacity-50 disabled:cursor-not-allowed' 
+                  onClick={()=> {
+                    if(page < totalPages){
+                      setPage(prev => prev+1)
+                    }
+                  }}
+                  disabled={page >= totalPages}
+                >
+                  Next
+                </button>
+              </div>
+            )
+          }
+        </div>     
         
         {
           openConfirmBox && (

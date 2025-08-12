@@ -45,7 +45,7 @@ const CheckoutPage = () => {
 
   const handlePaymentOrder = async ()=>{
     try {
-      toast.loading("Loading...")
+      toast.loading("Creating order...")
       const publishKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY
       const stripe = await loadStripe(publishKey);
 
@@ -60,14 +60,22 @@ const CheckoutPage = () => {
       })
 
       const {data : responseData} = response
-      // console.log(responseData)
-      stripe.redirectToCheckout({sessionId:responseData?.id})
-
-      if(fetchCartItems){
-        fetchCartItems()
+      
+      if(responseData?.id) {
+        // Order created successfully, clear cart immediately
+        toast.dismiss()
+        toast.success("Order created! Redirecting to payment...")
+        
+        if(fetchCartItems){
+          fetchCartItems()
+        }
+        
+        // Redirect to Stripe checkout
+        stripe.redirectToCheckout({sessionId:responseData.id})
       }
       
     } catch (error) {
+      toast.dismiss()
       toast.error(error?.response?.data?.message || error?.message || error?.response?.message || "Something went wrong");
     }
   }

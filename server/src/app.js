@@ -10,6 +10,10 @@ app.use(cors({
     origin: process.env.ORIGIN,
     credentials: true,
 }))
+
+// Special handling for Stripe webhook (needs raw body) - MUST come before express.json()
+app.use('/api/v1/order/webhook', express.raw({type: 'application/json'}));
+
 app.use(express.json({limit: '16kb',}));
 app.use(express.urlencoded({extended:true, limit: '16kb'}))
 app.use(express.static("public"))

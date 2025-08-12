@@ -221,7 +221,7 @@ const EditProduct = ({product,setProduct,close,fetchProduct}) => {
   };
 
   return (
-    <section className="fixed top-0 left-0 right-0 bottom-0 bg-neutral-700 bg-opacity-60 flex items-center justify-center p-4">
+    <section className="fixed top-0 left-0 right-0 bottom-0 bg-neutral-700 bg-opacity-60 flex items-center justify-center p-4 z-[100]">
       <div className="bg-white p-2 w-full max-w-3xl rounded max-h-[95vh] overflow-hidden overflow-y-auto">
         <section className="p-2 h-full">
           <div className="grid gap-5">

@@ -46,6 +46,18 @@ const UserMenu = ({close}) => {
         <h2 className='px-2'>My Account</h2>
         <Divider/>
         <p className='mt-2 px-2 py-2 capitalize flex items-center gap-2'><span>{user.name || user.mobile}</span><span className='text-sm text-red-500'>{IsAdmin(user.role) && ("(Admin)")}</span><Link to={"/dashboard/profile"}><LuExternalLink size={18} className='hover:text-primary200'/></Link></p>
+        
+        {/* Admin Dashboard - Available for admins */}
+        {
+          IsAdmin(user.role) && (
+            <NavLink to={"/dashboard"} className={({isActive}) => `px-2 py-2 capitalize flex items-center gap-2 hover:bg-primary200 hover:text-white cursor-pointer ${isActive?"bg-primary200 text-white":""}`}>Dashboard</NavLink>
+          )
+        }
+        
+        {/* Customer Orders - Available for all users */}
+        <NavLink to={"/dashboard/myorders"} className={({isActive}) => `px-2 py-2 capitalize flex items-center gap-2 hover:bg-primary200 hover:text-white cursor-pointer ${isActive?"bg-primary200 text-white":""}`}>My Orders</NavLink>
+        
+        {/* Admin Only Links */}
         {
           IsAdmin(user.role) && (
             <NavLink to={"/dashboard/category"} className={({isActive}) => `px-2 py-2 capitalize flex items-center gap-2 hover:bg-primary200 hover:text-white cursor-pointer ${isActive?"bg-primary200 text-white":""}`}>Category</NavLink>
@@ -64,6 +76,11 @@ const UserMenu = ({close}) => {
         {
           IsAdmin(user.role) && (
             <NavLink to={"/dashboard/adminproduct"} className={({isActive}) => `px-2 py-2 capitalize flex items-center gap-2 hover:bg-primary200 hover:text-white cursor-pointer ${isActive?"bg-primary200 text-white":""}`}>Product</NavLink>
+          )
+        }
+        {
+          IsAdmin(user.role) && (
+            <NavLink to={"/dashboard/orders"} className={({isActive}) => `px-2 py-2 capitalize flex items-center gap-2 hover:bg-primary200 hover:text-white cursor-pointer ${isActive?"bg-primary200 text-white":""}`}>Orders</NavLink>
           )
         }
         <NavLink to={"/dashboard/address"} className={({isActive}) => `px-2 py-2 capitalize flex items-center gap-2 hover:bg-primary200 hover:text-white cursor-pointer ${isActive?"bg-primary200 text-white":""}`}>Address</NavLink>

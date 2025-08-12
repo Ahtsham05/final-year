@@ -110,7 +110,7 @@ const AddSubCategory = ({close,fetchSubCategories}) => {
     }
 
   return (
-    <section className='fixed top-0 bottom-0 left-0 right-0 bg-neutral-700 bg-opacity-60 p-4 flex items-center justify-center'>
+    <section className='fixed top-0 bottom-0 left-0 right-0 bg-neutral-700 bg-opacity-60 p-4 flex items-center justify-center z-[100]'>
         <div className='w-full max-w-lg bg-white px-2 py-4 grid gap-3'>
             <div className='flex justify-between items-center'>
                 <h1 className='font-semibold'>Add Sub Category</h1>

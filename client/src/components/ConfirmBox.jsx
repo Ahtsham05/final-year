@@ -4,7 +4,7 @@ import { IoClose } from "react-icons/io5";
 
 const ConfirmBox = ({close,confirm}) => {
   return (
-    <section className='fixed top-0 bottom-0 left-0 right-0 bg-neutral-700 bg-opacity-60 flex items-center justify-center p-4 z-50'>
+    <section className='fixed top-0 bottom-0 left-0 right-0 bg-neutral-700 bg-opacity-60 flex items-center justify-center p-4 z-[100]'>
         <div className='w-full max-w-md bg-white p-2 grid gap-8'>
             <div className='flex justify-between'>
                 <h1 className='font-semibold text-xl'>Are you sure?</h1>

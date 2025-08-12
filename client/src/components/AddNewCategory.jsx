@@ -67,7 +67,7 @@ const AddNewCategory = ({close,fetch}) => {
     }
     
   return (
-    <section className="fixed top-0 left-0 right-0 bottom-0 bg-neutral-900 text-neutral-700 bg-opacity-60 p-4 flex items-center justify-center">
+    <section className="fixed top-0 left-0 right-0 bottom-0 bg-neutral-900 text-neutral-700 bg-opacity-60 p-4 flex items-center justify-center z-[100]">
             <div className='bg-white max-w-lg w-full p-2'>
                 <div className='flex justify-between items-center'>
                     <h1 className='font-semibold'>Add New Category</h1>

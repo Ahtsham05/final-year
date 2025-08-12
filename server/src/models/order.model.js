@@ -42,6 +42,32 @@ const orderSchema = new Schema({
     invoiceReceipt:{
         type:String,
         default:""
+    },
+    quantity:{
+        type:Number,
+        default:1
+    },
+    price:{
+        type:Number,
+        default:0
+    },
+    // New delivery status fields
+    deliveryStatus:{
+        type:String,
+        enum:["pending", "confirmed", "shipped", "delivered", "cancelled"],
+        default:"pending"
+    },
+    deliveryDate:{
+        type:Date,
+        default:null
+    },
+    trackingNumber:{
+        type:String,
+        default:""
+    },
+    deliveryNotes:{
+        type:String,
+        default:""
     }
 },{timestamps:true})
 

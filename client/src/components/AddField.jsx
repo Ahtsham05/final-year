@@ -3,7 +3,7 @@ import { IoClose } from 'react-icons/io5'
 
 const AddField = ({close,add,field,setfield}) => {
   return (
-    <section className='fixed bottom-0 top-0 right-0 left-0 p-4 bg-neutral-700 bg-opacity-60 flex items-center justify-center'>
+    <section className='fixed bottom-0 top-0 right-0 left-0 p-4 bg-neutral-700 bg-opacity-60 flex items-center justify-center z-[100]'>
         <div className='w-full max-w-md bg-white rounded p-4 grid gap-8'>
             <div className='flex justify-between items-center'>
                 <h1 className='font-semibold'>Add Field</h1>
